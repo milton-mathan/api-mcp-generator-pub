@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Transform OpenAPI specifications into interactive exploration tools and generate Python MCP servers automatically." />
+    <meta name="keywords" content="OpenAPI, MCP, API, Generator, React, TypeScript" />
+    <meta name="author" content="API MCP Generator Team" />
+    
+    <!-- Security Headers -->
+    <!--
+      connect-src is deliberately open: importing a spec by URL fetches an
+      arbitrary user-supplied host, so narrowing it would break the feature.
+      style-src allows inline styles because Headless UI sets them via the
+      style attribute. No inline <script> is emitted, so script-src stays
+      'self' with no 'unsafe-inline' or 'unsafe-eval'.
+
+      Note frame-ancestors and form-action are ignored when CSP is delivered
+      by <meta>; framing is covered by X-Frame-Options below. If this is ever
+      served from somewhere that can set real response headers, move this
+      policy there and add frame-ancestors 'none'.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src *"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    
+    <title>API MCP Generator</title>
+  </head>
+  <body>
+    <!--
+      First focusable element on the page, so a keyboard user can jump past the
+      header instead of tabbing through it. The target is the <main> React
+      renders into #root; the anchor resolves once the app has mounted.
+    -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
